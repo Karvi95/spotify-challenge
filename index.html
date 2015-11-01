@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spotify Challenge</title>
+    <meta name="author" content="Arvindram Krishnamoorthy">
+    <meta name="description" content="Spotify Profile and Games">
+    
+    <!-- Libraries -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap.js"></script>    
+    <script src="//www.parsecdn.com/js/parse-1.6.0.min.js"></script>    
+
+    
+
+    <!-- Read scripts -->
+    <script type="text/javascript" src="js/spotify.js"></script>
+    <link rel="stylesheet" href="css/main.css"> 
+    
+</head>
+<body>
+    <!-- Initiate app -->
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- Form -->
+                    <form class="container" name="songForm" id="userinput">
+                        <!-- NAME -->
+                        <div class="form-group" ng-class="{ 'has-error' : songForm.name.$invalid && !songForm.name.$pristine }">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" ng-model="user.name" required>
+                            <p ng-show="songForm.name.$invalid && !songForm.name.$pristine" class="help-block">You name is required.</p>
+                        </div>
+
+                        <!-- USERNAME -->
+                        <div class="form-group" ng-class="{ 'has-error' : songForm.username.$invalid && !songForm.username.$pristine }">
+                            <label>Username</label>
+                            <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="125">
+                            <p ng-show="songForm.username.$error.minlength" class="help-block">Username is too short.</p>
+                            <p ng-show="songForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="form-group" ng-class="{ 'has-error' : songForm.email.$invalid && !songForm.email.$pristine }">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control" ng-model="user.email">
+                            <p ng-show="songForm.email.$invalid && !songForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                        </div>
+
+                        <!-- Songs -->
+                        <div class="form-group">
+                            <label>Spotify search:</label>
+                            <input name="search" placeholder="Enter your search.." ng-model="track" class="form-control"></input>
+                        </div>                        
+
+                        <button class="btn btn-primary" ng-click="getSongs()" type="submit" ng-disabled="songForm.$invalid" >Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    <!-- Results -->
+        <div class="container-fixed">
+            <p ng-show="tracks.length>0" class="help-block">Click to sample</p>
+            <ul>
+                <li ng-repeat="track in tracks" class="" ng-click="play(track.preview_url)" title="{{track.name}}">{{track.name + ', by ' + track.artists[0].name}}</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
