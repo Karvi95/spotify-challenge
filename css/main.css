@@ -1,3 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Arvo);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata);
+
 #userinput {
 	max-width: 700px;
 }
+
+body {  
+	font-family: Arvo, 'Helvetica Neue', Helvetica, sans-serif;   
+	font-size: 16px;
+	font-weight: 300;
+}		
