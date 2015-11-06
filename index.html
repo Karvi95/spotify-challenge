@@ -53,17 +53,16 @@
                             <input name="search" placeholder="Enter your search..." ng-model="track" class="form-control"></input>
                         </div>                        
 
-                        <button class="btn btn-success" ng-click="getSongs()" type="submit" ng-disabled="songForm.$invalid" >Submit</button>
+                        <button class="btn btn-success" ng-click="getSongs()" type="submit" id="button" ng-disabled="songForm.$invalid" >Submit</button>
                     </form>
                 </div>
             </div>
         </div>          
 
     <!-- Forms to ask 5 questions -->
-        <div ng-controller="getInfoCtrl">
-            <form class="responseForms" ng-ng-repeat="form in forms" ng-show="currentForm == $index" ng-submit="submit()">
-                {{form}}
-                <input class="form-control" ng-model="responses[$index]" />
+        <div class="container" ng-controller="getInfoCtrl">
+            <form form class="container" ng-submit="submit()">
+                <input ng-model="user" placeholder="Who was the Artist?" id="userinput2" class="form-control"/>                
             </form>
         </div>
 

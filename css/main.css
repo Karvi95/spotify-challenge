@@ -5,15 +5,18 @@
 	max-width: 700px;
 }
 
+#userinput2 {
+	max-width: 670px;
+}
+
+#button {
+	margin-bottom: 15px;
+}
+
 body {  
 	font-family: Arvo, 'Helvetica Neue', Helvetica, sans-serif !important;   
 	font-size: 16px;
 	font-weight: 300;
 	color:#99FF00;
-	background-color:#3E3E00;
+	background-color:#04003E;
 }		
-
-.responseForms {
-	max-width: 700px;
-	padding-left: 85px;
-}

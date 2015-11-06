@@ -4,7 +4,6 @@ var myApp = angular.module('myApp', [])
 var answers = [];
 
 var getInfoCtrl = myApp.controller('getInfoCtrl', function($scope, $http) {
-    console.log(hi);
     $scope.currentForm = 0;
     $scope.forms = [
         'Who was the Artist?',
@@ -14,13 +13,12 @@ var getInfoCtrl = myApp.controller('getInfoCtrl', function($scope, $http) {
         'Popularity?'
     ];
     $scope.submit = function() {
-        if ($scope.text) {
-            answers.push($scope.text);
+        if ($scope.user) {
+            answers.push(this.user);
             $scope.currentForm++;
-        } else {
-            alert("This field cannot be empty!");
-        }
-        $scope.text = '';
+        } 
+        console.log('Answer Elements: ' + answers)
+        $scope.user = '';
     }
 })
 
