@@ -3,10 +3,11 @@ var baseUrl = 'https://api.spotify.com/v1/search?type=track&query='
 var myApp = angular.module('myApp', [])
 var answers = [];
 
-var getInfoController = myApp.controller('getInfoController', function($scope, $http) {
+var getInfoCtrl = myApp.controller('getInfoCtrl', function($scope, $http) {
+    console.log(hi);
     $scope.currentForm = 0;
     $scope.forms = [
-        'Artist?',
+        'Who was the Artist?',
         'Album?',
         'Duration?',
         'Genre?',
