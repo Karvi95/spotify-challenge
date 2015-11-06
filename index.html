@@ -10,13 +10,12 @@
     
     <!-- Libraries -->
     <script src="https://code.jquery.com/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-animate.js"></script>
     <script src="//www.parsecdn.com/js/parse-1.6.0.min.js"></script>    
-
-    
 
     <!-- Read scripts -->
     <script type="text/javascript" src="js/spotify.js"></script>
@@ -41,7 +40,7 @@
                         <!-- USERNAME -->
                         <div class="form-group" ng-class="{ 'has-error' : songForm.username.$invalid && !songForm.username.$pristine }">
                             <label>Username</label>
-                            <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="125">
+                            <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="12">
                             <p ng-show="songForm.username.$error.minlength" class="help-block">Username is too short.</p>
                             <p ng-show="songForm.username.$error.maxlength" class="help-block">Username is too long.</p>
                         </div>
@@ -49,7 +48,7 @@
                         <!-- EMAIL -->
                         <div class="form-group" ng-class="{ 'has-error' : songForm.email.$invalid && !songForm.email.$pristine }">
                             <label>Email</label>
-                            <input type="email" name="email" class="form-control" ng-model="user.email">
+                            <input type="email" name="email" class="form-control" ng-model="user.email" required>
                             <p ng-show="songForm.email.$invalid && !songForm.email.$pristine" class="help-block">Enter a valid email.</p>
                         </div>
 
@@ -64,6 +63,12 @@
                 </div>
             </div>
         </div>
+        <!-- Forms to ask questions -->
+        <form ng-repeat="form in forms" ng-show="currentForm == $index" ng-submit="submit()">
+            {{form}}
+            <input ng-model="responses[$index]" />
+        </form>
+             
 
     <!-- Results -->
         <div class="container-fixed">
