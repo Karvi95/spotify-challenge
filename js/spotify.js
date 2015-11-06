@@ -1,18 +1,31 @@
 var data;
 var baseUrl = 'https://api.spotify.com/v1/search?type=track&query='
 var myApp = angular.module('myApp', [])
-var formCounter;
+var answers = [];
+
 var getInfoController = myApp.controller('getInfoController', function($scope, $http) {
     $scope.currentForm = 0;
     $scope.forms = [
-        'Artist',
-        'Album',
-        'Duration'
+        'Artist?',
+        'Album?',
+        'Duration?',
+        'Genre?',
+        'Popularity?'
     ];
     $scope.submit = function() {
-        $scope.currentForm++;
+        if ($scope.text) {
+            answers.push($scope.text);
+            $scope.currentForm++;
+        } else {
+            alert("This field cannot be empty!");
+        }
+        $scope.text = '';
     }
 })
+
+var processAnswers = function() {
+
+}
 
 var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
   $scope.audioObject = {}

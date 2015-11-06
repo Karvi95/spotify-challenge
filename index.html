@@ -24,6 +24,7 @@
 </head>
 <body>
     <!-- Initiate app -->
+    <h1>Song Guesser!</h1>
     <div ng-app="myApp" ng-controller="myCtrl">
         <div class="container">
             <div class="row">
@@ -62,13 +63,13 @@
                     </form>
                 </div>
             </div>
-        </div>
-        <!-- Forms to ask questions -->
-        <form ng-repeat="form in forms" ng-show="currentForm == $index" ng-submit="submit()">
+        </div>          
+
+    <!-- Forms to ask 5 questions -->
+        <form ng-controller="getInfoController" ng-repeat="form in forms" ng-show="currentForm == $index" ng-submit="submit()">
             {{form}}
             <input ng-model="responses[$index]" />
         </form>
-             
 
     <!-- Results -->
         <div class="container-fixed">
