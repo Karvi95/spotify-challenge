@@ -61,8 +61,10 @@
 
     <!-- Forms to ask 5 questions -->
         <div class="container" ng-controller="getInfoCtrl">
-            <form form class="container" ng-submit="submit()">
-                <input ng-model="user" placeholder="Who was the Artist?" id="userinput2" class="form-control"/>                
+
+        <form class="container" ng-repeat="form in forms" ng-show="currentForm == $index" ng-submit="submit()">
+            {{form}}
+            <input ng-model="responses[$index]" placeholder="make5ofthesedofancyfadein/outstuff" id="userinput2" class="form-control" required/>                
             </form>
         </div>
 

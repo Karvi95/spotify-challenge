@@ -5,26 +5,54 @@ var answers = [];
 
 var getInfoCtrl = myApp.controller('getInfoCtrl', function($scope, $http) {
     $scope.currentForm = 0;
+    $scope.responses = [];
     $scope.forms = [
         'Who was the Artist?',
-        'Album?',
-        'Duration?',
-        'Genre?',
-        'Popularity?'
+        'How many songs are in the album?',
+        'What is last letter of the album?',
+        'How long is this song? (use a scale of 1 - 3; 1 - less than 5 mins, 2 - 5 to 10 mins; 3 - greater than 10 mins)',
+        'On a scale of 1(...less popular) to 5(On Fire!), how popular is this track?'
     ];
     $scope.submit = function() {
-        if ($scope.user) {
-            answers.push(this.user);
-            $scope.currentForm++;
-        } 
-        console.log('Answer Elements: ' + answers)
-        $scope.user = '';
+      $scope.currentForm++;
+        console.log('Answer Elements: ' + $scope.responses)
+        $scope.responses = '';
     }
 })
 
 var processAnswers = function() {
+    var artist = answers[0];
+    var albumNum = parseInt(answers[1], 0);
+    var character = answers[2];
+    var duration;
+    if (parseInt(answers[2], 0) === 1) {
 
+    } else if (parseInt(answers[2], 0) === 2) {
+
+    } else {
+
+    };
+    var popularity;
+    if (parseInt(answers[4], 0) === 1) {
+
+    } else if (parseInt(answers[4], 0) === 2) {
+
+    } else if (parseInt(answers[4], 0) === 3) {
+
+    } else if (parseInt(answers[4], 0) === 4) {
+
+    } else {
+
+    }
 }
+
+
+
+
+
+
+
+
 
 var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
   $scope.audioObject = {}
