@@ -1,7 +1,6 @@
 var data;
 var baseUrl = 'https://api.spotify.com/v1/search?type=track&query='
 var myApp = angular.module('myApp', [])
-var answers = [];
 
 var getInfoCtrl = myApp.controller('getInfoCtrl', function($scope, $http) {
     $scope.currentForm = 0;
@@ -10,7 +9,7 @@ var getInfoCtrl = myApp.controller('getInfoCtrl', function($scope, $http) {
         'Who was the Artist?',
         'How many songs are in the album?',
         'What is last letter of the album?',
-        'How long is this song? (use a scale of 1 - 3; 1 - less than 5 mins, 2 - 5 to 10 mins; 3 - greater than 10 mins)',
+        'The song is: 1 - less than 5 mins, 2 - 5 to 10 mins; 3 - greater than 10 mins',
         'On a scale of 1(...less popular) to 5(On Fire!), how popular is this track?'
     ];
     $scope.submit = function() {
@@ -18,33 +17,36 @@ var getInfoCtrl = myApp.controller('getInfoCtrl', function($scope, $http) {
         console.log('Answer Elements: ' + $scope.responses)
         $scope.responses = '';
     }
+
+    $scope.processAnswers = function() {
+        var artist = $scope.responses[0];
+        var albumNum = parseInt($scope.responses[1], 0);
+        var character = $scope.responses[2];
+        var duration;
+        if (parseInt($scope.responses[2], 0) === 1) {
+
+        } else if (parseInt($scope.responses[2], 0) === 2) {
+
+        } else {
+
+        };
+        var popularity;
+        if (parseInt($scope.responses[4], 0) === 1) {
+
+        } else if (parseInt($scope.responses[4], 0) === 2) {
+
+        } else if (parseInt($scope.responses[4], 0) === 3) {
+
+        } else if (parseInt($scope.responses[4], 0) === 4) {
+
+        } else {
+
+        }
+    }
+
 })
 
-var processAnswers = function() {
-    var artist = answers[0];
-    var albumNum = parseInt(answers[1], 0);
-    var character = answers[2];
-    var duration;
-    if (parseInt(answers[2], 0) === 1) {
 
-    } else if (parseInt(answers[2], 0) === 2) {
-
-    } else {
-
-    };
-    var popularity;
-    if (parseInt(answers[4], 0) === 1) {
-
-    } else if (parseInt(answers[4], 0) === 2) {
-
-    } else if (parseInt(answers[4], 0) === 3) {
-
-    } else if (parseInt(answers[4], 0) === 4) {
-
-    } else {
-
-    }
-}
 
 
 
