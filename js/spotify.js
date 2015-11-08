@@ -1,5 +1,6 @@
 var data;
-var baseUrl = 'https://api.spotify.com/v1/search?type=track&query='
+var baseUrl = 'https://api.spotify.com/';
+var artistsAlbum = 'v1/artists/{id}/albums';
 var myApp = angular.module('myApp', [])
 
 var getInfoCtrl = myApp.controller('getInfoCtrl', function($scope, $http) {
@@ -19,9 +20,37 @@ var getInfoCtrl = myApp.controller('getInfoCtrl', function($scope, $http) {
     }
 
     $scope.processAnswers = function() {
+
+
+        $http.get(baseUrl + artistsAlbum).success(function(response) {
+
+        });
+        //get artist's albums
+        //loop through them to see if has letter ending in character
+        //push name to an array if do
+
+        //for each album in array, Get full album object
+        // check tracks to see if equals number of tracks (check how to get several albums might be easier)
+        // if match, push album to new array
+        // optional: clear old array
+
+        //for each album in new array, get album's tracks
+        //check if duration converted matches duration
+        // if match, push track to new array
+        // optional: clear old array
+
+        //for each track, check if popularity matches.
+        //if found, play and get image from simplified album object,
+        //Optional: if not, call function to save stuff to parse. 
+
+
+
+
+
+
         var artist = $scope.responses[0];
-        var albumNum = parseInt($scope.responses[1], 0);
         var character = $scope.responses[2];
+        var numberOfTracks = parseInt($scope.responses[1], 0);
         var duration;
         if (parseInt($scope.responses[2], 0) === 1) {
 
