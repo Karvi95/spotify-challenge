@@ -15,7 +15,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap.js"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-animate.js"></script>
-    <script src="//www.parsecdn.com/js/parse-1.6.0.min.js"></script>    
 
     <!-- Read scripts -->
     <script type="text/javascript" src="js/spotify.js"></script>
@@ -58,25 +57,16 @@
                 </div>
             </div>
         </div>          
-
-    <!-- Forms to ask 5 questions -->
-        <div class="container" ng-controller="getInfoCtrl">
-
-        <form class="container" ng-repeat="form in forms" ng-show="currentForm == $index" ng-submit="submit()">
-            {{form}}
-            <input ng-model="responses[$index]" placeholder="make5ofthesedofancyfadein/outstuff" id="userinput2" class="form-control" required/>                
-            </form>
-        </div>
-
-    <!-- Results -->
+        <!-- Results -->
         <div class="container-fixed">
             <div class="help-block">
                 <span ng-show="tracks.length>0">Click to sample</span>
                 <span ng-show="currentSong && !audioObject.paused">(playing)</span>
             </div>
-            <ul>
-                <li ng-repeat="track in tracks" class="" ng-click="play(track.preview_url)" title="{{track.name}}">{{track.name + ', by ' + track.artists[0].name}}</li>
-            </ul>
+            <div ng-repeat="track in tracks" class="col-md-4 img">
+                <image ng-click="play(track.preview_url)" title="{{track.name}}" ng-src="{{track.album.images[1].url}}"><image>
+                <p>{{track.name + "'s " + track.artists[0].name}}</p> 
+            </div>
         </div>
     </div>
 </body>
