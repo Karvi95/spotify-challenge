@@ -19,6 +19,7 @@ body {
 	font-weight: 300;
 	color:#99FF00;
 	background-image: url(../img/background2.jpg);
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-color: black;
 }		
