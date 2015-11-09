@@ -37,10 +37,13 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
         }
     }
       
-    $scope.popCheck = function(song) {
-        
-
-        
+    $scope.popCheck = function(song, popularity) {
+        console.log(popularity);
+        if(popularity == highest) {
+            alert('YOU WIN!');
+        } else {
+            alert('Keep trying.');
+        }  
     }
 })
 
