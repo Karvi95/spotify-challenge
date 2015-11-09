@@ -61,13 +61,13 @@
             </div>
         </div>          
         <!-- Game Start -->
-        <p>Guess which song has the highest popularity!</p>
+        <p>Guess which of the songs below has the highest popularity!</p>
         <div class="container-fixed">
             <div class="help-block">
                 <span ng-show="tracks.length>0">Click text to sample the song, click picture to make your guess</span>
                 <span ng-show="currentSong && !audioObject.paused">(playing)</span>
             </div>
-            <div ng-repeat="track in tracks | orderBy:'popularity'" class="col-md-4 img">
+            <div ng-repeat="track in tracks | orderBy:'artist'" class="col-md-4 img">
                 <image ng-click="popCheck(track.preview_url, track.popularity)" title="{{track.name}}" ng-src="{{track.album.images[1].url}}"><image>
                 <p ng-click="play(track.preview_url)">{{track.artists[0].name + "'s " + track.name}}</p> 
             </div>
